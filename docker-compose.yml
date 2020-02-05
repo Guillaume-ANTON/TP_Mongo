@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  node:
+    image: node:alpine
+    container_name: node_tp2
+    ports:
+      - "8080:8080"
+    environement:
+      - PORT_node=8080
+    backend:
+      build: .
+ 
+  redis:
+    image: redis
+    restart: on-failure
+    container_name: redis_tp2
+    ports:
+      - "6379:6379"
+    environement:
+      - PORT_redis=6379
+    ports:
+      - "6379:6379"
